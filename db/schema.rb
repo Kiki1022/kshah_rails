@@ -13,16 +13,26 @@
 ActiveRecord::Schema.define(version: 2020_12_05_200058) do
 
   create_table "appointments", force: :cascade do |t|
+    t.datetime "appointment_datetime"
+    t.string "service"
+    t.integer "stylist_id"
+    t.integer "client_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "clients", force: :cascade do |t|
+    t.string "email"
+    t.string "name"
+    t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "stylists", force: :cascade do |t|
+    t.string "email"
+    t.string "name"
+    t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

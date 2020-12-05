@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class StylisttsControllerTest < ActionDispatch::IntegrationTest
+class StylistsControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end

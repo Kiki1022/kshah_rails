@@ -1,6 +1,8 @@
 class StylistsController < ApplicationController
+ 
+    def new
 
-get '/' do
-    "Hello"
-end
+    end
+
+
 end

@@ -16,10 +16,21 @@ stylists and client
     name-presence
     email- presence and uniqueness
     passwords- has secure pw will ensure presence
-    
+
 
 appointment-validate presence of attributes..
     appointment_datetime
     service
     stylist_id
     client_id
+
+scope methods
+
+    -responsible for returnin a set of data based on what method's goal is
+    -live in model
+    -class method b/c we will be querying all of the instances of that class
+    -keywords are active record queries eg "where",  "find"(select is sql method), "order", "all"
+    -in controller this will be called in this format
+        Class.scope_method_name stored inside instance variable so you can utilize it inside the views
+       @girls_night = Appointment.champagne_party
+    -

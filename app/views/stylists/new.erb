@@ -1,9 +1,7 @@
 <%= form_for @stylist do |f| %>
- <%=f.label :name %>
- <%=f.text_field :name %><br>
- <%=f.label :email %>
- <%=f.text_field :email %><br>
+ <%=f.label :username %>
+ <%=f.text_field :username %><br>
  <%=f.label :password %>
  <%=f.password_field :password %><br>
- <%= f.submit %>
+ <%= f.submit "Create Profile" %>
 <% end %>

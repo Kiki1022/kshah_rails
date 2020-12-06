@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   #signing up
   get '/signup', to: 'stylists#new'
- # get 'clients/signup', to: 'clients#new'
+ 
  
   #logging in
   

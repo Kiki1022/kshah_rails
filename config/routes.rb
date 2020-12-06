@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :appointments
 
   #signing up
-  get 'stylists/signup', to: 'stylists#new'
+  get '/signup', to: 'stylists#new'
  # get 'clients/signup', to: 'clients#new'
  
   #logging in

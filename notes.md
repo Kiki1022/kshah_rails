@@ -12,11 +12,15 @@ clients has many appts
 has many stylists through appts
 
 Validations:
-stylists and client
-    name-presence
-    email- presence and uniqueness
-    passwords- has secure pw will ensure presence
-
+stylists 
+    
+    username- presence and uniqueness
+    password- has secure pw will ensure presence
+client
+    name
+    email
+    rating as a tipper
+    comments-optional
 
 appointment-validate presence of attributes..
     appointment_datetime

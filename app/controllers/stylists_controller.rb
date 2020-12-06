@@ -8,12 +8,12 @@ class StylistsController < ApplicationController
 
     # end
 
-    #  def show
+     def show
+        @stylist = Stylist.find(params[:id])
+     end
 
-    #  end
-
-    # def index
-
-    # end
+    def index
+        @stylists = Stylist.all
+    end
     
 end

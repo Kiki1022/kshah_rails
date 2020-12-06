@@ -1,10 +1,8 @@
 class CreateStylists < ActiveRecord::Migration[6.0]
   def change
-    create_table :stylists do |t|
-      
+    create_table :stylists do |t|  
       t.string :username
       t.string :password_digest
-      t.string :level
       t.timestamps
     end
   end

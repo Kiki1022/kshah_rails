@@ -1,6 +1,16 @@
 Rails.application.routes.draw do
-  resources :stylists
+  resources :stylists, except: [:new]
   resources :clients
   resources :appointments
-  #For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  #signing up
+  get 'stylists/signup', to: 'stylists#new'
+ # get 'clients/signup', to: 'clients#new'
+ 
+  #logging in
+  
+  get '/login', to:'sessions#new'
+  post '/login', to:'sessions#create'
+  delete '/logout', to:'sessions#destroy'
+
 end

@@ -34,3 +34,19 @@ scope methods
         Class.scope_method_name stored inside instance variable so you can utilize it inside the views
        @girls_night = Appointment.champagne_party
     -
+
+    user authentication
+        -users controller is responsible for creating our client/stylist object => signing up
+        
+        -sessions controller responsible for logging our users in/ logging out
+
+         "rake routes | grep stylists" for routes
+
+                             stylists GET    /stylists(.:format)                                                                      stylists#index
+                                      POST   /stylists(.:format)                                                                      stylists#create
+                          new_stylist GET    /stylists/new(.:format)                                                                  stylists#new
+                         edit_stylist GET    /stylists/:id/edit(.:format)                                                             stylists#edit
+                              stylist GET    /stylists/:id(.:format)                                                                  stylists#show
+                                      PATCH  /stylists/:id(.:format)                                                                  stylists#update
+                                      PUT    /stylists/:id(.:format)                                                                  stylists#update
+                                      DELETE /stylists/:id(.:format)                                                                  stylists#destroy

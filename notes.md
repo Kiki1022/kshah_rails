@@ -16,11 +16,17 @@ stylists
     
     username- presence and uniqueness
     password- has secure pw will ensure presence
+
+    stylists can:
+    Create/read/update/destroy their own appointments
+    also can Read ALL appointments but cannot do anyother functions
+
 client
     name
     email
     rating as a tipper
     comments-optional
+client is created by stylist(user)
 
 appointment-validate presence of attributes..
     appointment_datetime

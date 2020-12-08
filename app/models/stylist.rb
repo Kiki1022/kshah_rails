@@ -6,4 +6,7 @@ class Stylist < ApplicationRecord
 
     validates :username, presence: true, uniqueness: true
     
+    accepts_nested_attributes_for :clients
 end
+
+#create setter method for clients

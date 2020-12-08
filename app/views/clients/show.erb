@@ -1,0 +1,11 @@
+<h2>Client Name:<%= @client.name %></h2>
+<h2>Birthday Month:<%= @client.bday_month %></h2>
+<h2>Appointments:</h2>
+
+   <% @client.appointments.each do |appt| %>
+    <ul>
+    <li>When: <%= appt.appointment_datetime.strftime("%B %e, %Y at %l:%M %p") %></li>
+    <li>Service: <%= appt.service %></li>
+    <li>Stylist: <%= appt.stylist.username %></li>
+    </ul>
+    <% end %>

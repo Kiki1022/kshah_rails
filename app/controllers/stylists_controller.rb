@@ -1,7 +1,7 @@
 class StylistsController < ApplicationController
  
     def home
-        
+
     end
 
     def new
@@ -10,8 +10,8 @@ class StylistsController < ApplicationController
 
     def create
         @stylist = Stylist.new(stylist_params)
-        if @stylist.save
-            
+        if @stylist.save 
+            session[:stylist_id] = @stylist.id
             redirect_to stylist_path(@stylist) #show page
         else
             render :new #alert or error?

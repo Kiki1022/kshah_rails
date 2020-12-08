@@ -2,15 +2,20 @@ class SessionsController < ApplicationController
 
     def login
         @stylist = Stylist.new
+        #@stylist = Stylist.find_by(username: params[:username])
     end
 
     def create
-        @stylist = Stylist.find_by(username: params[:username])
+        @stylist = Stylist.find_by(username: params[:username]) #this is working
+    
+        
             if @stylist && @stylist.authenticate(password: params[:password])
+            
                 session[:stylist_id] = @stylist.id
+                
                 redirect_to stylist_path(@stylist)
-            else
-                render :login
+             else
+                 redirect_to login_path
             end
    
     end

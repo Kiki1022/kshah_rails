@@ -1,17 +1,15 @@
-
-   
-    <%= form_for @appointment do |f| %>
-          
+<h2>New Appointment</h2>
+<%= form_for @appointment do |f| %>
           <%= f.label "When" %>
-          <%= f.datetime_local_field :appointment_datetime %>
+          <%= f.datetime_local_field :appointment_datetime %><br>
           <%= f.label :service%>
-          <%= f.collection_select :id, Appointment.all, :id, :service, {:include_blank => 'Choose your service'} %>
-          <%= f.label "Existing Clients" %>
-          <%= f.collection_select :client_id, Client.all, :id, :name, {:include_blank => 'Choose Client Name'} %>
-          <%= f.label "New Client" %>
+          <%= f.collection_select :id, Appointment.all, :id, :service, {:include_blank => 'Service'} %><br>
+          <%= f.label "Existing Client" %>
+          <%= f.collection_select :client_id, Client.all, :id, :name, {:include_blank => 'Existing Client'} %><br>
+          <%= f.label "New Client" %><br>
           <%=f.fields_for :client, @appointment.build_client do |c| %>
             <%= c.label :name %>
-            <%= c.text_field :name %>
+            <%= c.text_field :name %><br>
              <%= c.label :bday_month %>
             <%= c.text_field :bday_month %>
           <% end %>

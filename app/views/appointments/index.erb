@@ -1,0 +1,9 @@
+<h1>Appointments</h1>
+<div class = "container">
+<% @appointments.each do |appt| %>
+<p>When: <%= appt.appointment_datetime.strftime("%B %e, %Y at %l:%M %p") %></p>
+<p>Client: <%= appt.client.name %></p>
+<p>Service: <%= appt.service %></p>
+<p>Stylist: <%= appt.stylist.username %></p>
+<% end %>
+</div>

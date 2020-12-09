@@ -1,7 +1,15 @@
 class StylistsController < ApplicationController
- 
+    
     def home
 
+    end
+
+    def index
+        @stylists = Stylist.all
+    end
+    
+    def show
+        @stylist = Stylist.find(params[:id])
     end
 
     def new
@@ -17,15 +25,7 @@ class StylistsController < ApplicationController
             render :new #alert or error?
         end
     end
-
-     def show
-        @stylist = Stylist.find(params[:id])
-     end
-
-    def index
-        @stylists = Stylist.all
-    end
-    
+  
     private
 
     def stylist_params

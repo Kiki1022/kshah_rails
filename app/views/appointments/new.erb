@@ -10,7 +10,7 @@
           <%=f.fields_for :client, @appointment.build_client do |c| %>
             <%= c.label :name %>
             <%= c.text_field :name %><br>
-             <%= c.label :bday_month %>
+            <%= c.label :bday_month %>
             <%= c.text_field :bday_month %>
           <% end %>
           <%= f.submit %>

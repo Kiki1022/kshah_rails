@@ -8,5 +8,3 @@ class Stylist < ApplicationRecord
     
     accepts_nested_attributes_for :clients
 end
-
-#create setter method for clients

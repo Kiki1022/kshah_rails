@@ -6,15 +6,17 @@ class SessionsController < ApplicationController
     end
 
     def create
+    
         @stylist = Stylist.find_by(username: params[:username]) #this is working
     
         
-            if @stylist && @stylist.authenticate(password: params[:password])
+            if @stylist && @stylist.authenticate(params[:password])
             
                 session[:stylist_id] = @stylist.id
                 
                 redirect_to stylist_path(@stylist)
              else
+                binding.pry
                  redirect_to login_path
             end
    

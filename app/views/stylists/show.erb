@@ -5,6 +5,7 @@
         <li>When: <%= appt.appointment_datetime.strftime("%B %e, %Y at %l:%M %p") %></li>
         <li>Client: <%= appt.client.name %></li>
         <li>Service: <%= appt.service %></li>
+        <li>Notes: <%= appt.client.notes %></li>
     </ul>
     <% end %>
 

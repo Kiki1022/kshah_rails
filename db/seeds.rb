@@ -8,11 +8,11 @@ amrezy = Stylist.create ({username: "amrezy", password: "1111"})
 makeupbymario = Stylist.create ({username: "makeupbymario", password: "1111"})
 huda = Stylist.create ({username: "huda", password: "1111"})
 
-kim = Client.create ({name: "Kim Kardashian", bday_month: "October"})
-khloe = Client.create ({name: "Khloe Kardashian", bday_month: "June"})
-scott = Client.create ({name: "Scott Disick", bday_month: "May"})
-kylie = Client.create ({name: "Kylie Jenner", bday_month: "August"})
-kanye = Client.create ({name: "Kanye West", bday_month: "June"})
+kim = Client.create ({name: "Kim Kardashian", notes: "Picks her nose!"})
+khloe = Client.create ({name: "Khloe Kardashian", notes: "Omg she never tips!"})
+scott = Client.create ({name: "Scott Disick", notes: "Ughhh smelly feet!🤢"})
+kylie = Client.create ({name: "Kylie Jenner", notes: "Always late!"})
+kanye = Client.create ({name: "Kanye West", notes: "So rude!"})
 
 Appointment.create([
 {appointment_datetime: DateTime.new(2020, 10, 22, 19, 00, 0), service: "Chest Wax", client: scott, stylist: amrezy},

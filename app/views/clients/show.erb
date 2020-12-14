@@ -1,5 +1,4 @@
 <h2>Client Name:<%= @client.name %></h2>
-<h2>Birthday Month:<%= @client.bday_month %></h2>
 <h2>Appointments:</h2>
 
    <% @client.appointments.each do |appt| %>
@@ -9,3 +8,5 @@
     <li>Stylist: <%= appt.stylist.username %></li>
     </ul>
     <% end %>
+
+    <h2>Notes:<%= @client.notes %></h2>

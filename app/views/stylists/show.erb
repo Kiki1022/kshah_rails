@@ -1,7 +1,7 @@
 <h2>Welcome <%= @stylist.username %>!</h2>
 
-
-<li><%= link_to "View My Appointments", stylist_appointments_path(@stylist) %></li>
 <li><%= link_to "Create New Appointment", new_stylist_appointment_path(@stylist) %></li>
-<li><%= link_to "View All Clients", clients_path %>
+<li><%= link_to "View My Appointments", stylist_appointments_path(@stylist) %></li>
+
 <li><%= link_to "View All Appointments", appointments_path %>
+<li><%= link_to "View All Clients", clients_path %>

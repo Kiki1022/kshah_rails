@@ -1,4 +1,11 @@
-<h2> <%= @client.name %></h2>
-<h2>"<%= @client.notes%>" 😲☕</h2>
+<h2>Celeb<%= @client.name %></h2>
+<h2>The Tea:<%= @client.notes %></h2>
 
-<li><%= link_to "Spill More Tea", edit_client_path(@client)%>
+   <% @client.appointments.each do |appt| %>
+    <ul>
+    <li>When: <%= appt.appointment_datetime.strftime("%B %e, %Y at %l:%M %p") %></li>
+    <li>Service: <%= appt.service %></li>
+    <li>Stylist: <%= appt.stylist.username %></li>
+    </ul>
+    <% end %>
+

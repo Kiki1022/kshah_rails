@@ -6,7 +6,8 @@ class SessionsController < ApplicationController
     end
 
     def create
-        @stylist = Stylist.find_by(username: params[:username]) #this is working
+        @stylist = Stylist.find_by(username: params[:stylist][:username]) #this is working
+        #binding.pry
             if @stylist && @stylist.authenticate(params[:password])
                 session[:stylist_id] = @stylist.id  
                 redirect_to stylist_path(@stylist)
@@ -18,6 +19,6 @@ class SessionsController < ApplicationController
 
     def destroy
         session.clear
-        redirect_to login_path
+        redirect_to '/'
     end
 end

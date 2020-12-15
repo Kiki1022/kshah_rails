@@ -1,12 +1,7 @@
 <h2>Welcome <%= @stylist.username %>!</h2>
-<h3>Appointments:</h3>
-<% @stylist.appointments.each do |appt| %>
-    <ul>
-        <li>When: <%= appt.appointment_datetime.strftime("%B %e, %Y at %l:%M %p") %></li>
-        <li>Client: <%= appt.client.name %></li>
-        <li>Service: <%= appt.service %></li>
-        <li>The Tea: <%= appt.client.notes %></li>
-    </ul>
-    <% end %>
 
-<li><%= link_to "My Appointments", stylist_appointments_path(@styist) %></li>
+
+<li><%= link_to "View My Appointments", stylist_appointments_path(@stylist) %></li>
+<li><%= link_to "Create New Appointment", new_stylist_appointment_path(@stylist) %></li>
+<li><%= link_to "View All Clients", clients_path %>
+<li><%= link_to "View All Appointments", appointments_path %>

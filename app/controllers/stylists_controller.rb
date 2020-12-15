@@ -1,7 +1,8 @@
 class StylistsController < ApplicationController
+
     
     def home
-
+        @clients = Client.all 
     end
 
     def index

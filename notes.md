@@ -60,3 +60,25 @@ scope methods
                                       PATCH  /stylists/:id(.:format)                                                                  stylists#update
                                       PUT    /stylists/:id(.:format)                                                                  stylists#update
                                       DELETE /stylists/:id(.:format)                                                                  stylists#destroy
+
+Stylist Show page
+
+link to create new appt
+view their appts
+view ALL appointments
+
+stylist/id/appt/show page
+shows their appts
+has option to delete or edit any of them
+
+stylist/id/appts
+can view everyones appt.
+maybe someting else??
+Maybe can only view stylst/client/service and notes
+
+can only make appts or view index page if have an account
+
+with no account you can only view stylist names and clients names and notes on home page.
+on home page there will be featured makeup artists and celebrities(seeds)
+
+

@@ -7,6 +7,7 @@
   
 
   <%= f.label "Stylist" %>
+  <#need to put current_stylist>
   <%= f.collection_select :stylist_id, Stylist.all, :id, :username, {:include_blank => 'Select Stylist'} %><br>
 
   <%= f.label "Existing Client" %>

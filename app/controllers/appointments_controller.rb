@@ -1,7 +1,12 @@
 class AppointmentsController < ApplicationController
     
     def index
-        @appointments = Appointment.all
+        if params[:stylist_id]
+            @stylist = Stylist.find_by(id: params[:stylist_id])
+            @appointments = @stylist.appointments
+        else
+            @appointments = Appointment.all
+        end
     end
     
     
@@ -10,9 +15,7 @@ class AppointmentsController < ApplicationController
     end
     
     def new
-        @appointment = Appointment.new
-        #@appointment.build_client
-        #@services = Appointment.all.map {|a| a.service}
+        @appointment = Appointment.new   
     end
 
     def create

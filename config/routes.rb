@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
 
   resources :stylists, except: [:new] do 
-    resources :appointments, :only => [:new, :create, :show, :index]
+    resources :appointments
   end
-  resources :appointments, :only => [:index]
+  resources :appointments
   resources :clients
  
   get '/', to: 'stylists#home'

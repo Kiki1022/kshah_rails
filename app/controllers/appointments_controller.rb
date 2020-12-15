@@ -16,12 +16,14 @@ class AppointmentsController < ApplicationController
     
     def new
         @appointment = Appointment.new   
+        @appointment.build_client
     end
 
     def create
+        binding.pry
         @appointment = Appointment.create(appt_params)
             if @appointment.save
-                redirect_to appointment_path(@appointment)
+                redirect_to stylist_appointment_path(@stylist, @appointment)
             else
                 render :new
             end
@@ -30,7 +32,7 @@ class AppointmentsController < ApplicationController
     private
 
     def appt_params
-        params.require(:appointment).permit(:appointment_datetime, :client_id, :stylist_id, :id, :service, client_attributes: [:name, :bday_month])
+        params.require(:appointment).permit(:appointment_datetime, :client_id, :stylist_id, :id, :service, client_attributes: [:name, :notes])
     end
 
 end

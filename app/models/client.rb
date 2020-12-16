@@ -4,5 +4,4 @@ class Client < ApplicationRecord
     has_many :stylists, through: :appointments
    
     validates :name, presence: true, uniqueness: true
-
 end

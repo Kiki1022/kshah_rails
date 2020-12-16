@@ -1,9 +1,15 @@
-<h1>Your Appointment</h1>
+
+<h1>Appointment for <%= @appointment.stylist.username %></h1>
+
 <p>When:<%= @appointment.appointment_datetime.strftime("%B %e, %Y at %l:%M %p") %></p>
 <p>Service:<%= @appointment.service %></p>
 <p> Client:<%= @appointment.client.name %></p>
+<p>The Tea ☕: <%=@appointment.client.notes %></p>
+
+
 
 <#edit>
 <#delete>
 <#create new app
 <#%= button_to "Delete Appointment", image_path(@image), method: :delete %>
+

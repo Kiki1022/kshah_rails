@@ -20,10 +20,9 @@ class AppointmentsController < ApplicationController
     end
 
     def create
-        binding.pry
-        @appointment = Appointment.create(appt_params)
+        @appointment = Appointment.new(appt_params)
             if @appointment.save
-                redirect_to stylist_appointment_path(@stylist, @appointment)
+                redirect_to stylist_appointment_path(@appointment.stylist_id, @appointment)
             else
                 render :new
             end

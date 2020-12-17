@@ -7,9 +7,12 @@
             <li>Stylist: <%= appt.stylist.username %></li>
             <li>Service: <%= appt.service %></li>
             <li>The Tea: <%= appt.client.notes %></li>
+            <li><%=link_to "View", appointment_path(appt) %></li>
+
         </ul>
+       
         <% end %>
 
 
 
-<#%= button_to "Edit", edit_stylist_appointment_path(@appointment.stylist_id, @appointment) %>
+

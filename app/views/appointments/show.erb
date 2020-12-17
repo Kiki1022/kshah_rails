@@ -6,10 +6,8 @@
 <p> Client:<%= @appointment.client.name %></p>
 <p>The Tea ☕: <%=@appointment.client.notes %></p>
 
+
+<%=button_to "Edit", edit_appointment_path(@appointment), method: :get %>
 <%=button_to "Delete", @appointment, method: :delete %> 
 
-<#edit>
-<#delete>
-<#create new app
-<#%= button_to "Delete Appointment", image_path(@image), method: :delete %>
 

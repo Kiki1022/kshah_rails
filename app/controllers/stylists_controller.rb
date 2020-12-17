@@ -28,6 +28,11 @@ class StylistsController < ApplicationController
         end
     end
   
+    def destroy
+        @stylist = Stylist.find_by(id: params[:id])
+        @stylist.destroy
+        redirect_to '/home'
+    end
     private
 
     def stylist_params

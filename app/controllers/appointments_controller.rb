@@ -29,7 +29,7 @@ class AppointmentsController < ApplicationController
             end
 
             def edit
-                @appointment = Appointment.find(params[:id])
+                @appointment = Appointment.find_by(id: params[:id])
             end
 
             def update
@@ -42,6 +42,7 @@ class AppointmentsController < ApplicationController
                 #binding.pry
                 @appointment = Appointment.find_by(id: params[:id])
                 @appointment.destroy
+                #alert appointment has been deleted
                 redirect_to '/appointments'
                 end
 

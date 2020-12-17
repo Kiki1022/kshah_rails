@@ -1,12 +1,6 @@
 <h2><%= @client.name %></h2>
 <h3>"<%= @client.notes %>"</h3>
 
-   <% @client.appointments.each do |appt| %>
-    <ul>
-    <li>When: <%= appt.appointment_datetime.strftime("%B %e, %Y at %l:%M %p") %></li>
-    <li>Service: <%= appt.service %></li>
-    <li>Stylist: <%= appt.stylist.username %></li>
-    </ul>
-    <% end %>
 
-<%=button_to "Delete", @client, method: :delete %> 
+<%=button_to "Edit", edit_client_path(@client), method: :get %>
+<p><%= link_to "Back to Clients", clients_path %><p>

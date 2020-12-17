@@ -1,3 +1,7 @@
+<% @errors && @errors.each do |e| %>
+    <p><%= e %><p>
+<% end %>
+
 <%= form_for @stylist do |f| %>
  <%=f.label :username %>
  <%=f.text_field :username %><br>

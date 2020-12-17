@@ -3,9 +3,9 @@ class Appointment < ApplicationRecord
     belongs_to :stylist
     belongs_to :client
 
-    validates :service, presence: true
-    #validates :service, :appointment_datetime, presence: true
-    #, reject_if: proc { |attributes| attributes['name'].blank? }
+   
+    validates :service, :appointment_datetime, presence: true
+   
 
     def client_attributes=(client_attributes)
         if client_attributes[:name].present?
@@ -14,6 +14,9 @@ class Appointment < ApplicationRecord
         end
     end
 
+    # def service_unique
+    #     service.uniq
+    # end
 end
 
 

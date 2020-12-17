@@ -1,4 +1,4 @@
-<h2>Celeb-<%= @client.name %></h2>
+<h2><%= @client.name %></h2>
 <h3>"<%= @client.notes %>"</h3>
 
    <% @client.appointments.each do |appt| %>
@@ -9,3 +9,4 @@
     </ul>
     <% end %>
 
+<%=button_to "Delete", @client, method: :delete %> 

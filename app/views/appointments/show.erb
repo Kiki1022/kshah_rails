@@ -6,7 +6,7 @@
 <p> Client:<%= @appointment.client.name %></p>
 <p>The Tea ☕: <%=@appointment.client.notes %></p>
 
-
+<%=button_to "Delete", @appointment, method: :delete %> 
 
 <#edit>
 <#delete>

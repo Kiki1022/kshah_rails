@@ -21,9 +21,10 @@ class StylistsController < ApplicationController
         @stylist = Stylist.new(stylist_params)
         if @stylist.save 
             session[:stylist_id] = @stylist.id
-            redirect_to stylist_path(@stylist) #show page
+            redirect_to stylist_path(@stylist) 
         else
-            render :new #alert or error?
+            @errors = @stylist.errors.full_messages
+            render :new 
         end
     end
   

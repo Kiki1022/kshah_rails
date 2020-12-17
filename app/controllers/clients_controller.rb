@@ -13,8 +13,13 @@ class ClientsController < ApplicationController
     end
 
     def create
-        @client = Client.create(client_params)
-
+        @client = Client.new(client_params)
+            if @client.save
+                redirect_to client_path(@client)
+            else
+                @errors = @client.errors.full_messages
+                render :new
+            end
     end
 
     def edit
@@ -22,12 +27,15 @@ class ClientsController < ApplicationController
     end
 
     def update
+        @client = Client.find(params[:id])
         @client.update(client_params)
         @client.save
     end
 
     def destroy
-
+        @client = Client.find_by(id: params[:id])
+        @client.destroy
+        redirect_to '/clients'
     end
 
     private

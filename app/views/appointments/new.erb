@@ -1,3 +1,7 @@
+<% @errors && @errors.each do |e| %>
+    <p><%= e %><p>
+<% end %>
+
 <h2>New Appointment</h2>
 <%= form_for @appointment do |f| %>
  

@@ -12,7 +12,8 @@ class SessionsController < ApplicationController
                 session[:stylist_id] = @stylist.id  
                 redirect_to stylist_path(@stylist)
              else
-                 redirect_to login_path
+                 #@errors = @stylist.errors.full_messages
+                 render :login
             end
    
     end

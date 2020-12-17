@@ -24,8 +24,28 @@ class AppointmentsController < ApplicationController
             if @appointment.save
                 redirect_to stylist_appointment_path(@appointment.stylist_id, @appointment)
             else
+                @errors = @appointment.errors.full_messages
                 render :new
             end
+
+            def edit
+                @appointment = Appointment.find(params[:id])
+            end
+
+            def update
+                @appointment = Appointment.find(params[:id])
+                @appointment.update(appt_params)
+                redirect_to stylist_appointment_path(@appointment.stylist_id, @appointment)
+            end
+            
+            def destroy
+                #binding.pry
+                @appointment = Appointment.find_by(id: params[:id])
+                @appointment.destroy
+                redirect_to '/appointments'
+                end
+
+           
     end
 
     private

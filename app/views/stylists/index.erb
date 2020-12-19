@@ -1,6 +1,6 @@
 <% @stylists.each do |s| %>
 <div>
-<h2><%= link_to s.username, stylist_path(s) %></h2>
+<h2><%= link_to s.username,stylist_appointments_path(s)  %></h2>
 </div>
 <%end%>
 

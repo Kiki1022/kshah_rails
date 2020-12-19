@@ -24,10 +24,7 @@ Things you may want to cover:
 * ...
 
 
-<%= form_tag ('/login') do %>
- Username:
- <%=text_field_tag :username %><br>
- Password
- <%=password_field_tag :password %><br>
- <%= submit_tag "Login" %>
-<% end %>
+
+ @appointment.client.errors.full_messages
+
+ 

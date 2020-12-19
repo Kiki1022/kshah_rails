@@ -1,6 +1,5 @@
 <h2><%= @client.name %></h2>
 <h3>"<%= @client.notes %>"</h3>
 
-
 <%=button_to "Edit", edit_client_path(@client), method: :get %>
 <p><%= link_to "Back to Clients", clients_path %><p>

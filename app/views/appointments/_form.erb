@@ -1,0 +1,34 @@
+
+<h2>New Appointment</h2>
+<%= form_for @appointment do |f| %>
+ 
+  <%= f.label "When" %>
+  <%= f.datetime_local_field :appointment_datetime %><br>
+  
+  <%= f.label "Service" %>
+  <%= f.fields_for :service, @appointment.build.service do |s| %>
+  <%= s.name :name %>
+  <% end %>
+ 
+
+  <%= f.label "Stylist" %>
+  
+  
+  <%= f.collection_select(:stylist_id, Stylist.all, :id, :username, {:include_blank => 'Select Stylist'}) %><br>
+  
+  <%= f.label "Existing Client" %>
+  <%= f.collection_select(:client_id, Client.all, :id, :name, {:include_blank => 'Existing Client'}) %><br>
+
+
+
+  <%= f.label "New Client" %><br>
+
+    <%=f.fields_for :client, @appointment.build_client do |c| %>
+      <%= c.label :name %>
+      <%= c.text_field :name %><br>
+      <%= c.label :notes %>
+      <%= c.text_field :notes %>
+    <% end %>
+
+  <%= f.submit %>
+<% end %>

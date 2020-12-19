@@ -29,7 +29,7 @@ class StylistsController < ApplicationController
     end
   
     def destroy
-        @stylist = Stylist.find_by(id: params[:id])
+        @stylist = Stylist.find(params[:id])
         @stylist.destroy
         redirect_to '/home'
     end
@@ -39,17 +39,7 @@ class StylistsController < ApplicationController
         params.require(:stylist).permit(:username, :password)
     end
 end
-# def update
-#     @artist = Artist.find(params[:id])
 
-#     @artist.update(artist_params)
-
-#     if @artist.save
-#       redirect_to @artist
-#     else
-#       render :edit
-#     end
-#   end
 
 #   def destroy
 #     @artist = Artist.find(params[:id])
@@ -58,4 +48,3 @@ end
 #     redirect_to artists_path
 #   end
 
-#   private

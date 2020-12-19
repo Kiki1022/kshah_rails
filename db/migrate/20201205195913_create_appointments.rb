@@ -4,6 +4,7 @@ class CreateAppointments < ActiveRecord::Migration[6.0]
         t.datetime :appointment_datetime
         t.integer :stylist_id
         t.integer :client_id
+        t.integer :service_id
       t.timestamps
     end
   end

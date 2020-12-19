@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 2020_12_19_024406) do
     t.datetime "appointment_datetime"
     t.integer "stylist_id"
     t.integer "client_id"
+    t.integer "service_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -28,7 +29,6 @@ ActiveRecord::Schema.define(version: 2020_12_19_024406) do
   end
 
   create_table "services", force: :cascade do |t|
-    t.integer "appointment_id"
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

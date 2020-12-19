@@ -2,7 +2,7 @@ class Appointment < ApplicationRecord
     
     belongs_to :stylist
     belongs_to :client
-    has_one :service
+    belongs_to :service
     validates :appointment_datetime, presence: true
     #accepts_nested_attributes_for :service
     

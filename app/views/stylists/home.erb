@@ -1,4 +1,8 @@
-<%= flash[:message] %>
+<% @errors && @errors.each do |e| %>
+<%= e %>
+<% end %>
+
+
 
 <h1>InstaStyle</h1>
     <h2>Join Now!</h2>

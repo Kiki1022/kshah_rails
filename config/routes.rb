@@ -17,8 +17,8 @@ Rails.application.routes.draw do
   post '/login', to:'sessions#create'
   delete '/logout', to:'sessions#destroy'
 
-  get '/auth/:provider/callback', to: 'sessions#omniauth'
-  #not going out route
+  get '/auth/:provider/callback', to: 'sessions#create'
+  #post '/auth/google', to: 'sessions#omniauth'
 end
 # /authors/:author_id/posts
 # author_posts_path(author_id) # all posts nested under an author

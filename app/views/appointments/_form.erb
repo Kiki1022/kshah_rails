@@ -6,9 +6,7 @@
   <%= f.datetime_local_field :appointment_datetime %><br>
   
   <%= f.label "Service" %>
-  <%= f.fields_for :service, @appointment.build.service do |s| %>
-  <%= s.name :name %>
-  <% end %>
+  <%= f.collection_select(:service_id, Service.all, :id, :name, {:include_blank => 'Select Service'}) %><br>
  
 
   <%= f.label "Stylist" %>

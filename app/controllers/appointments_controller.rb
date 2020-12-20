@@ -1,4 +1,5 @@
 class AppointmentsController < ApplicationController
+    before_action :redirect_if_unauthorized
     
     def index
         if params[:stylist_id]
@@ -16,9 +17,8 @@ class AppointmentsController < ApplicationController
     
     def new
         @appointment = Appointment.new   
-      
         @appointment.build_client
-        @appointment.service.build
+       
     end
 
     def create
@@ -31,7 +31,7 @@ class AppointmentsController < ApplicationController
         else
             @errors = @appointment.errors.full_messages
             #redirect_to new_stylist_appointment_path(@appointment.stylist_id)
-            render :new
+            render 'new'
         end 
     end
 

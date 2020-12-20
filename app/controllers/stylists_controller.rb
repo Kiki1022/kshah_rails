@@ -1,5 +1,5 @@
 class StylistsController < ApplicationController
-
+    before_action :redirect_if_unauthorized
     
     def home
         @clients = Client.all 

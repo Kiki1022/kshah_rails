@@ -1,11 +1,12 @@
-<% @errors && @errors.each do |e| %>
-    <p><%= e %><p>
-<% end %>
+<%= @errors %>
 
 <%= form_for @stylist do |f| %>
- <%=f.label :username %>
- <%=f.text_field :username %><br>
- <%=f.label :password %>
- <%=f.password_field :password %><br>
- <%= f.submit "Create Profile" %>
+
+    <%=f.label :username %>
+    <%=f.text_field :username %><br>
+    <%=f.label :password %>
+    <%=f.password_field :password %><br>
+
+    <%= f.submit "Create Profile" %>
+
 <% end %>

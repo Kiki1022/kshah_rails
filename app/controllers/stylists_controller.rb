@@ -23,7 +23,7 @@ class StylistsController < ApplicationController
             session[:stylist_id] = @stylist.id
             redirect_to stylist_path(@stylist) 
         else
-            @errors = @stylist.errors.full_messages
+            @errors = @stylist.errors.full_messages.join(", ")
             render :new 
         end
     end
@@ -36,10 +36,4 @@ class StylistsController < ApplicationController
 end
 
 
-#   def destroy
-#     @artist = Artist.find(params[:id])
-#     @artist.destroy
-#     flash[:notice] = "Artist deleted."
-#     redirect_to artists_path
-#   end
 

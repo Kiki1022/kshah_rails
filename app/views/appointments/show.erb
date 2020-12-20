@@ -4,7 +4,7 @@
 <p>When:<%= @appointment.appointment_datetime.strftime("%B %e, %Y at %l:%M %p") %></p>
 <p>Service:<%= @appointment.service.name %></p>
 <p>Client:<%= @appointment.client.name %></p>
-<p>The Tea ☕: <%=@appointment.client.notes %></p>
+<p>Notes: <%=@appointment.client.notes %></p>
 
 
 <%=button_to "Edit", edit_appointment_path(@appointment), method: :get %>

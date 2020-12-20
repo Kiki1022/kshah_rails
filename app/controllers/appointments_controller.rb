@@ -31,7 +31,7 @@ class AppointmentsController < ApplicationController
                 redirect_to stylist_appointment_path(@appointment.stylist_id, @appointment)
             #end
         else
-            @errors = @appointment.errors.full_messages
+            @errors = @appointment.errors.full_messages.join(", ")
             #redirect_to new_stylist_appointment_path(@appointment.stylist_id)
             render 'new'
         end 
@@ -44,7 +44,12 @@ class AppointmentsController < ApplicationController
     def update
         @appointment = Appointment.find(params[:id])
         @appointment.update(appt_params)
-        redirect_to stylist_appointment_path(@appointment.stylist_id, @appointment)
+        if @appointment.save
+            redirect_to stylist_appointment_path(@appointment.stylist_id, @appointment)
+        else
+            @errors = @appointment.errors.full_messages.join(", ")
+            render :edit
+        end
     end
             
     def destroy

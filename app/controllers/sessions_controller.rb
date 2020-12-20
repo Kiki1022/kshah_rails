@@ -14,11 +14,11 @@ class SessionsController < ApplicationController
                 else
                     redirect_to '/'
                 end
-            else
-                @stylist = Stylist.find_or_create_by(uid: auth['uid']) do |s|
-                    s.username = auth['info']['name']
-                    s.password = SecureRandom.hex(16)
-                end
+        else
+            @stylist = Stylist.find_or_create_by(uid: auth['uid']) do |s|
+                s.username = auth['info']['name']
+                s.password = SecureRandom.hex(16)
+            end
                 if @stylist.valid?
                     session[:stylist_id] = @stylist.id
                     redirect_to stylist_path(@stylist)

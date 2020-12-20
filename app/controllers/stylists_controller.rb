@@ -1,5 +1,5 @@
 class StylistsController < ApplicationController
-    before_action :redirect_if_unauthorized
+   #before_action :redirect_if_unauthorized
     
     def home
         @clients = Client.all 
@@ -28,11 +28,6 @@ class StylistsController < ApplicationController
         end
     end
   
-    def destroy
-        @stylist = Stylist.find(params[:id])
-        @stylist.destroy
-        redirect_to '/home'
-    end
     private
 
     def stylist_params

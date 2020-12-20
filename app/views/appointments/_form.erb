@@ -7,7 +7,14 @@
   
   <%= f.label "Service" %>
   <%= f.collection_select(:service_id, Service.all, :id, :name, {:include_blank => 'Select Service'}) %><br>
- 
+  
+  <%=f.label "New Service" %><br>
+
+    <%= f.fields_for :service, @appointment.build_service do |s| %>
+      <%= s.label :name %>
+      <%= s.text_field :name %>
+    <% end %><br>
+
 
   <%= f.label "Stylist" %>
   

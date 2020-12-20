@@ -1,6 +1,6 @@
 class AppointmentsController < ApplicationController
     before_action :redirect_if_unauthorized
-    
+
     def index
         if params[:stylist_id]
             @stylist = Stylist.find_by(id: params[:stylist_id])
@@ -17,7 +17,9 @@ class AppointmentsController < ApplicationController
     
     def new
         @appointment = Appointment.new   
+        @appointment.build_service
         @appointment.build_client
+
        
     end
 
@@ -49,7 +51,6 @@ class AppointmentsController < ApplicationController
         #binding.pry
         @appointment = Appointment.find_by(id: params[:id])
         @appointment.destroy
-        #alert appointment has been deleted
         redirect_to '/appointments'
     end
 
@@ -59,7 +60,7 @@ class AppointmentsController < ApplicationController
     private
 
     def appt_params
-        params.require(:appointment).permit(:appointment_datetime, :client_id, :stylist_id, :id, :service_id, client_attributes: [:name, :notes])
+        params.require(:appointment).permit(:appointment_datetime, :client_id, :stylist_id, :id, :service_id, service_attributes: :name, client_attributes: [:name, :notes])
     end
 
 end

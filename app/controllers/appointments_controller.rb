@@ -4,9 +4,9 @@ class AppointmentsController < ApplicationController
     def index
         if params[:stylist_id]
             @stylist = Stylist.find_by(id: params[:stylist_id])
-            @appointments = @stylist.appointments
+            @appointments = @stylist.appointments.order_by_appointment_datetime
         else
-            @appointments = Appointment.all
+            @appointments = Appointment.all.order_by_appointment_datetime
         end
     end
     
@@ -45,19 +45,12 @@ class AppointmentsController < ApplicationController
             render :edit
         end
     end
-         
-    # def most_popular
-    #     @appointments = Appointment.most_popular_service
-    # end
 
     def destroy
         @appointment = Appointment.find_by(id: params[:id])
         @appointment.destroy
         redirect_to '/appointments'
     end
-
-           
-    
 
     private
 

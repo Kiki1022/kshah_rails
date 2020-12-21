@@ -14,12 +14,13 @@ class Appointment < ApplicationRecord
     
 
     def client_attributes=(attr)
-        # find or create a brand with the name passed in
+      
         if !attr[:name].blank?
             self.client= Client.find_or_create_by(name: attr[:name])
         end
         #if user tries to create client that already existed, it goes into database and finds it for you.
     end
+
     
 end
 

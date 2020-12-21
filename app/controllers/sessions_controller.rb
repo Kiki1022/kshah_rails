@@ -11,9 +11,8 @@ class SessionsController < ApplicationController
                     session[:stylist_id] = @stylist.id 
                     redirect_to stylist_path(@stylist)
                 else
-                    flash[:message] = "Please try again"
-                   #@errors = @stylist.errors.full_messages.join(", ")
-                    redirect_to '/'
+                    flash[:message] = "Invalid Credentials, Please Try Again"
+                    render :login
                 end
         else
             @stylist = Stylist.find_or_create_by(uid: auth['uid']) do |s|

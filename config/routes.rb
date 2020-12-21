@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
 
   resources :stylists, except: [:new] do 
-    resources :appointments
+  resources :appointments
   end
+
   resources :appointments
   resources :clients
  
@@ -18,5 +19,7 @@ Rails.application.routes.draw do
   delete '/logout', to:'sessions#destroy'
 
   get '/auth/:provider/callback', to: 'sessions#create'
+
+ 
   
 end

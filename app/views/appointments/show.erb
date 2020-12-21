@@ -6,8 +6,8 @@
 <p>Client:<%= @appointment.client.name %></p>
 <p>Notes: <%=@appointment.client.notes %></p>
 
-
-<%=button_to "Edit", edit_appointment_path(@appointment), method: :get %>
+<%= link_to "Create New Appointment", new_appointment_path %>
+<%=button_to "Edit", edit_stylist_appointment_path(@appointment.stylist_id, @appointment), method: :get %>
 <%=button_to "Delete", @appointment, method: :delete %> 
 
 

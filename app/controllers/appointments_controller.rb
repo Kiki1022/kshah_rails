@@ -18,22 +18,16 @@ class AppointmentsController < ApplicationController
     def new
         @appointment = Appointment.new   
         @appointment.build_service
-        @appointment.build_client
-
-       
+        @appointment.build_client 
     end
 
     def create
         @appointment = Appointment.new(appt_params)
-        #binding.pry
-        #if params[:appointment][:client_id] == !nil
             if @appointment.save
                 redirect_to stylist_appointment_path(@appointment.stylist_id, @appointment)
-            #end
         else
-            @errors = @appointment.errors.full_messages.join(", ")
-            #redirect_to new_stylist_appointment_path(@appointment.stylist_id)
-            render 'new'
+            flash[:message] = "#{@appointment.errors.full_messages.to_sentence}."
+            redirect_to new_appointment_path
         end 
     end
 
@@ -51,9 +45,12 @@ class AppointmentsController < ApplicationController
             render :edit
         end
     end
-            
+         
+    # def most_popular
+    #     @appointments = Appointment.most_popular_service
+    # end
+
     def destroy
-        #binding.pry
         @appointment = Appointment.find_by(id: params[:id])
         @appointment.destroy
         redirect_to '/appointments'

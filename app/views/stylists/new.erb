@@ -2,10 +2,10 @@
 
 <%= form_for @stylist do |f| %>
 
-    <%=f.label :username %>
-    <%=f.text_field :username %><br>
-    <%=f.label :password %>
-    <%=f.password_field :password %><br>
+    <h3><%=f.label :username %></h3>
+    <%=f.text_field :username %>
+    <h3><%=f.label :password %></h3>
+    <%=f.password_field :password %>
 
     <%= f.submit "Create Profile" %>
 

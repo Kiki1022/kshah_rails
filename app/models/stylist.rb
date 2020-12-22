@@ -6,4 +6,11 @@ class Stylist < ApplicationRecord
     accepts_nested_attributes_for :clients
 
       
+    def self.find_or_create_from_google(auth)
+        self.find_or_create_by(uid: auth['uid']) do |s|
+            s.username = auth[:info][:name]
+            s.password.SecureRandom.hex(16)
+        end
+    end
+      
 end

@@ -2,10 +2,10 @@
     
         <% @appointments.each do |appt| %>
         <ul>
-            <li>When: <%= appt.appointment_datetime.strftime("%B %e, %Y at %l:%M %p") %></li>
+            <li>When: <%= strftime appt %></li>
             <li>Client: <%= appt.client.name %></li>
             <li>Stylist: <%= appt.stylist.username %></li>
-            <li>Service: <%= appt.service.name. %></li>
+            <li>Service: <%= appt.service.name %></li>
             <li>Notes: <%= appt.client.notes %></li>
             <li><%=link_to "More", appointment_path(appt) %></li>
         </ul>

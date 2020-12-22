@@ -1,5 +1,7 @@
 class AppointmentsController < ApplicationController
     before_action :redirect_if_unauthorized
+    #layouts 'custom'
+    
 
     def index
         if params[:stylist_id]
@@ -12,7 +14,8 @@ class AppointmentsController < ApplicationController
     
     
     def show
-        @appointment = Appointment.find(params[:id])
+        @appointment = Appointment.find_by(id: params[:id])
+        render layout: 'custom'
     end
     
     def new
@@ -22,8 +25,9 @@ class AppointmentsController < ApplicationController
     end
 
     def create
+        
         @appointment = Appointment.new(appt_params)
-            if @appointment.save
+        if @appointment.save
                 redirect_to stylist_appointment_path(@appointment.stylist_id, @appointment)
         else
             flash[:message] = "#{@appointment.errors.full_messages.to_sentence}."
@@ -36,7 +40,7 @@ class AppointmentsController < ApplicationController
     end
 
     def update
-        @appointment = Appointment.find(params[:id])
+        @appointment = Appointment.find_by(id: params[:id])
         @appointment.update(appt_params)
         if @appointment.save
             redirect_to stylist_appointment_path(@appointment.stylist_id, @appointment)

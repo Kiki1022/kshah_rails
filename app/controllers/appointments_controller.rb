@@ -1,5 +1,6 @@
 class AppointmentsController < ApplicationController
     before_action :redirect_if_unauthorized
+    before_action :set_appointment, only: [:show, :edit, :update, :destroy]
     #layouts 'custom'
     
 
@@ -13,9 +14,8 @@ class AppointmentsController < ApplicationController
     end
     
     
-    def show
-        @appointment = Appointment.find_by(id: params[:id])
-        render layout: 'custom'
+    def show 
+        #render layout: 'custom'
     end
     
     def new
@@ -25,7 +25,7 @@ class AppointmentsController < ApplicationController
     end
 
     def create
-        
+    
         @appointment = Appointment.new(appt_params)
         if @appointment.save
                 redirect_to stylist_appointment_path(@appointment.stylist_id, @appointment)
@@ -36,11 +36,10 @@ class AppointmentsController < ApplicationController
     end
 
     def edit
-        @appointment = Appointment.find_by(id: params[:id])
+    
     end
 
     def update
-        @appointment = Appointment.find_by(id: params[:id])
         @appointment.update(appt_params)
         if @appointment.save
             redirect_to stylist_appointment_path(@appointment.stylist_id, @appointment)
@@ -51,12 +50,16 @@ class AppointmentsController < ApplicationController
     end
 
     def destroy
-        @appointment = Appointment.find_by(id: params[:id])
         @appointment.destroy
-        redirect_to '/appointments'
+        redirect_to appointments_path
     end
 
     private
+   
+    def set_appointment
+        @appointment = Appointment.find_by(id: params[:id])
+    end
+
 
     def appt_params
         params.require(:appointment).permit(:appointment_datetime, :client_id, :stylist_id, :id, :service_id, service_attributes: :name, client_attributes: [:name, :notes])

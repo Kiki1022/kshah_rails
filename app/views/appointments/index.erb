@@ -1,17 +1,20 @@
+<div class = "box">
 <h1>Appointments:</h1>
     
         <% @appointments.each do |appt| %>
-        <ul>
-            <li>When: <%= strftime appt %></li>
-            <li>Client: <%= appt.client.name %></li>
-            <li>Stylist: <%= appt.stylist.username %></li>
-            <li>Service: <%= appt.service.name %></li>
-            <li>Notes: <%= appt.client.notes %></li>
-            <li><%=link_to "More", appointment_path(appt) %></li>
-        </ul>
+        
+            <p>When: <%= strftime appt %></p>
+            <p>Client: <%= appt.client.name %></p>
+            <p>Stylist: <%= appt.stylist.username %></p>
+            <p>Service: <%= appt.service.name %></p>
+            <p>Notes: <%= appt.client.notes %></p>
+            <p><%=link_to "More", appointment_path(appt) %></p>
+        
        
         <% end %>
 <br>
  <%= link_to "Create New Appointment", new_appointment_path %>
+
+ </div>
 
 

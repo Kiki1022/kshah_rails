@@ -12,6 +12,7 @@ class ApplicationController < ActionController::Base
     end
 
     def redirect_if_unauthorized
+      flash[:message] = "Please Log In"
       redirect_to '/' if !logged_in?
     end
  

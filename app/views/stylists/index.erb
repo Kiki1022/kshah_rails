@@ -1,9 +1,8 @@
-<% @stylists.each do |s| %>
-<div>
-<h2><%= link_to s.username,stylist_appointments_path(s)  %></h2>
+<div class = "box">
+    <% @stylists.each do |s| %>
+        <h2><%= link_to s.username, stylist_appointments_path(s) %></h2>
+    <% end %>
 </div>
-<%end%>
-
 
 
 

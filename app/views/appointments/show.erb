@@ -1,13 +1,13 @@
+<div class = "box">
+    <h1>Appointment for <%= @appointment.stylist.username %></h1>
 
-<h1>Appointment for <%= @appointment.stylist.username %></h1>
+    <p>When:<%= strftime @appointment %></p>
+    <p>Service:<%= @appointment.service.name %></p>
+    <p>Client:<%= @appointment.client.name %></p>
+    <p>Notes: <%=@appointment.client.notes %></p>
 
-<p>When:<%= strftime @appointment %></p>
-<p>Service:<%= @appointment.service.name %></p>
-<p>Client:<%= @appointment.client.name %></p>
-<p>Notes: <%=@appointment.client.notes %></p>
+    <%= link_to "Create New Appointment", new_appointment_path %>
+    <%=button_to "Edit", edit_stylist_appointment_path(@appointment.stylist_id, @appointment), method: :get %>
+    <%=button_to "Delete", @appointment, method: :delete %> 
 
-<%= link_to "Create New Appointment", new_appointment_path %>
-<%=button_to "Edit", edit_stylist_appointment_path(@appointment.stylist_id, @appointment), method: :get %>
-<%=button_to "Delete", @appointment, method: :delete %> 
-
-
+</div>

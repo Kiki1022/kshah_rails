@@ -1,4 +1,8 @@
-<h3 style="color:Red;"><%= flash[:message] %></h3>
+<div class = "box">
+
+    <h3 style="color:red;"><%= flash[:message] %></h3>
+
+
 <%= form_tag('/login', method: :post) do %>
 
   <div class="form-group">
@@ -17,5 +21,5 @@
   </div>
 
 <% end %> 
-
+</div>
 

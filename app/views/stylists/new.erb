@@ -1,12 +1,14 @@
-<%= @errors %>
+<h3 style="color:Red;"><%= @errors %></h3>
+<div class = "box">
+    <%= form_for @stylist do |f| %>
 
-<%= form_for @stylist do |f| %>
+        <h3><%=f.label :username %></h3>
+        <%=f.text_field :username %>
 
-    <h3><%=f.label :username %></h3>
-    <%=f.text_field :username %>
-    <h3><%=f.label :password %></h3>
-    <%=f.password_field :password %>
+        <h3><%=f.label :password %></h3>
+        <%=f.password_field :password %>
 
-    <%= f.submit "Create Profile" %>
+        <%= f.submit "Create Profile" %>
 
-<% end %>
+    <% end %>
+</div>

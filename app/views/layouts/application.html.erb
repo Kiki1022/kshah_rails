@@ -7,18 +7,21 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="application.css"/>
+  <nav>
+    <% if !logged_in? %>
+      <%= link_to "Join Now", signup_path %>
+      <%= link_to "Already a Member", login_path %>
+      <%= button_to "Log in with Google", '/auth/google_oauth2' %>
+      <h1>InstaStyle</h1>
+    <% end %>
+  
+    <% if logged_in? %>
+      <%= link_to "#{current_user.username}'s Home Page", stylist_path(current_user) %>
+      <%= link_to "Log Out", logout_path, method: :delete %>
+    <% end %>
+  </nav>
 
-  <% if !logged_in? %>
-    <%= link_to "Join Now", signup_path %>
-    <%= link_to "Already a Member", login_path %>
-    <%= button_to "Log in with Google", '/auth/google_oauth2' %>
-  <% end %>
-  
-  <% if logged_in? %>
-    <%= link_to "#{current_user.username}'s Home Page", stylist_path(current_user) %>
-    <%= link_to "Log Out", logout_path, method: :delete %>
-  <% end %>
-  
   </head>
 
   <body>
@@ -26,13 +29,13 @@
     <%= yield %>
   </body>
 
-  <footer>
+  <div class = "green">
 <% if logged_in? %>
   <%= link_to "Stylists", stylists_path %>
   <%= link_to "Appointments", appointments_path %>
   <%= link_to "Clients", clients_path %>
 <% end %>  
-  </footer>
+  </div>
 </html>
 
 

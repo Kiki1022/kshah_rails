@@ -1,5 +1,5 @@
 <h2>Welcome to InstaStyle, <%= @stylist.username %>!</h2>
-
-<span><%= link_to "Create New Appointment", new_stylist_appointment_path(@stylist) %></span>
-<span><%= link_to "View My Appointments", stylist_appointments_path(@stylist) %></span>
-
+<div class = "box">
+    <span><%= link_to "Create New Appointment", new_stylist_appointment_path(@stylist) %></span>
+    <span><%= link_to "View My Appointments", stylist_appointments_path(@stylist) %></span>
+</div>

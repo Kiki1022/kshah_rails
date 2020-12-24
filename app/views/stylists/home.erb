@@ -2,8 +2,9 @@
     <h3 style="color:Red;"><%= flash[:message] %></h3>
     <h3 style="color:Red;"><%= @errors %></h3>
 
-<div class="box">
-    
+    <div class="welcome">
+        <div class="welcome__window">
+            <div class="welcome__buttons">
     <h1>InstaStyle</h1>
 
         <h2>Join Now!</h2>
@@ -12,4 +13,6 @@
             <% @clients.each do |c| %>
                 <h2>"<%= c.notes %>"</h2>
             <% end %>
+        </div>
+   </div>
 </div>

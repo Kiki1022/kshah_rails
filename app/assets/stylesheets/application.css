@@ -1,5 +1,15 @@
-body {
-    background-color: rgb(230 227 227);  
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+
+
+body{
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
 }
 
 .field_with_errors input {
@@ -17,28 +27,71 @@ body {
     vertical-align: middle;
     width: 80%;
     text-align: center;
-    background-color: #dad2d9;
+    background-color: #e2dcdc;
     border: solid black 1px;
   }
   
-  .green {
-    border: 10px green;
-    padding: 35px;
-    background:#dad2d9;
-    text-align: center;
-    margin-top: 450px;
+
+  .welcome, .login, .signup {
+    background-image: url(../images/mario2.jpg);
+    height: 150vh;
+    background-size: cover;
+    background-position: 50% 15%;
+    display: flex;
+    align-items: center;
+    padding-left: 125px;
   }
 
-
-  
-  .head {
-    text-align: right;
-    vertical-align: top;
+  .welcome__window, .login__window, .signup__window {
+    background-color: white;
+    width: 50%;
+    max-width: 550px;
+    padding: 100px 50px;
+    box-shadow:
+    0 1.3px 3.6px rgba(0, 0, 0, 0.024),
+    0 3.6px 10px rgba(0, 0, 0, 0.035),
+    0 8.7px 24.1px rgba(0, 0, 0, 0.046),
+    0 29px 80px rgba(0, 0, 0, 0.07)
+  ;
+  border-radius: 10px;
   }
 
   nav{
+  
     display: flex;
     flex-direction: column;
-    align-items: right;
-    background-color:#dad2d9;
+    align-items: center;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    padding: 20px;
+    
+  }
+  
+  nav li {
+    padding: 10px 15px
+  }
+  
+  .nav__border {
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+  }
+  
+  nav li a, nav li a:link, nav li a:visited {
+    text-decoration: none;
+    color: rgb(129, 122, 122);
+    font-size: 20px;
+    transition: all .3s ease;
+  }
+ 
+  nav li a:hover {
+    color: darkslategray
+  }
+
+  .center{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }

@@ -1,84 +1,83 @@
-These two are seperated for 
-User Controller - responsible for creating new user only, once registered and logged in, new session will be created with users data.
-Sessions Controller - responsible for creating new session/logging in user. 
 
-Appointment model is Join table
-    belongs to client and stylist
 
-Stylist has many clients through appts
-has many appts
 
-clients has many appts
-has many stylists through appts
 
-Validations:
-stylists 
-    
-    username- presence and uniqueness
-    password- has secure pw will ensure presence
 
-    stylists can:
-    Create/read/update/destroy their own appointments
-    also can Read ALL appointments but cannot do anyother functions
 
-client
-    name
-    email
-    rating as a tipper
-    comments-optional
-client is created by stylist(user)
 
-appointment-validate presence of attributes..
-    appointment_datetime
-    service
-    stylist_id
-    client_id
+.welcome__title {
+  font-weight: lighter;
+  margin-bottom: 10px;
 
-scope methods
+}
 
-    -responsible for returnin a set of data based on what method's goal is
-    -live in model
-    -class method b/c we will be querying all of the instances of that class
-    -keywords are active record queries eg "where",  "find"(select is sql method), "order", "all"
-    -in controller this will be called in this format
-        Class.scope_method_name stored inside instance variable so you can utilize it inside the views
-       @girls_night = Appointment.champagne_party
-    -
+.welcome__window, .login__window, .signup__window {
+  background-color: white;
+  width: 100%;
+  max-width: 550px;
+  padding: 100px 50px;
+  box-shadow:
+  0 1.3px 3.6px rgba(0, 0, 0, 0.024),
+  0 3.6px 10px rgba(0, 0, 0, 0.035),
+  0 8.7px 24.1px rgba(0, 0, 0, 0.046),
+  0 29px 80px rgba(0, 0, 0, 0.07)
+;
+border-radius: 10px;
+}
 
-    user authentication
-        -users controller is responsible for creating our client/stylist object => signing up
-        
-        -sessions controller responsible for logging our users in/ logging out
+.welcome__subtitle {
+  margin-bottom: 30px;
+}
 
-         "rake routes | grep stylists" for routes
+.button, .button:link, .button:visited {
+  background-color: lightcoral;
+  color: white;
+  display: block;
+  width: max-content;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: opacity .3s ease;
+  border: none;
+  letter-spacing: 0.1em;
+}
 
-                             stylists GET    /stylists(.:format)                                                                      stylists#index
-                                      POST   /stylists(.:format)                                                                      stylists#create
-                          new_stylist GET    /stylists/new(.:format)                                                                  stylists#new
-                         edit_stylist GET    /stylists/:id/edit(.:format)                                                             stylists#edit
-                              stylist GET    /stylists/:id(.:format)                                                                  stylists#show
-                                      PATCH  /stylists/:id(.:format)                                                                  stylists#update
-                                      PUT    /stylists/:id(.:format)                                                                  stylists#update
-                                      DELETE /stylists/:id(.:format)                                                                  stylists#destroy
+.button:hover {
+  opacity: .7;
+}
 
-Stylist Show page
+.welcome__buttons {
+  display: flex;
 
-link to create new appt
-view their appts
-view ALL appointments
+}
 
-stylist/id/appt/show page
-shows their appts
-has option to delete or edit any of them
+.welcome__buttons > *:not(:last-child) {
+  margin-right: 20px;
+}
 
-stylist/id/appts
-can view everyones appt.
-maybe someting else??
-Maybe can only view stylst/client/service and notes
+.login__window label, .signup__window label {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  margin-bottom: 20px;
+}
 
-can only make appts or view index page if have an account
+.login__window input, .signup__window input {
+  max-width: 300px;
+  display: block;
+  justify-self: start;
+  padding: 5px 10px;
+  border: 2px solid rgb(129, 122, 122);
+  border-radius: 5px;
 
-with no account you can only view stylist names and clients names and notes on home page.
-on home page there will be featured makeup artists and celebrities(seeds)
+}
 
+.login__window input:focus, .signup__window input:focus{
+  border-color: lightcoral;
+  outline: none;
+}
+
+.login__window h2, .signup__window h2{
+  margin-bottom: 20px;
+  font-weight: 400;
+}
 

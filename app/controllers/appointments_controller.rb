@@ -31,7 +31,7 @@ class AppointmentsController < ApplicationController
                 redirect_to stylist_appointment_path(@appointment.stylist_id, @appointment)
         else
             flash[:message] = "#{@appointment.errors.full_messages.to_sentence}."
-            redirect_to new_appointment_path
+            render :new
         end 
     end
 

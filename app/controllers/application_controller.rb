@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   private 
 
     def current_user
-      Stylist.find_by(id: session[:stylist_id])
+      Stylist.find_by(id: session[:stylist_id]) 
     end
 
     def logged_in?
@@ -12,9 +12,10 @@ class ApplicationController < ActionController::Base
     end
 
     def redirect_if_unauthorized
-      flash[:message] = "Please Log In"
       redirect_to '/' if !logged_in?
     end
+
+    
  
   end
   

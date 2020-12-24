@@ -10,13 +10,14 @@
     <link rel="stylesheet" href="application.css"/>
   <nav>
     <% if !logged_in? %>
-      <%= link_to "Join Now", signup_path %>
-      <%= link_to "Already a Member", login_path %>
+      <%= link_to "Join Now", signup_path %> 
+      <%= link_to "Already a Member", login_path %> 
       <%= button_to "Log in with Google", '/auth/google_oauth2' %>
       <h1>InstaStyle</h1>
     <% end %>
   
-    <% if logged_in? %>
+    <% if logged_in? && current_user %>
+    <h1>InstaStyle</h1>
       <%= link_to "#{current_user.username}'s Home Page", stylist_path(current_user) %>
       <%= link_to "Log Out", logout_path, method: :delete %>
     <% end %>
@@ -29,7 +30,7 @@
     <%= yield %>
   </body>
 
-  <div class = "green">
+  <div class = "center">
 <% if logged_in? %>
   <%= link_to "Stylists", stylists_path %>
   <%= link_to "Appointments", appointments_path %>

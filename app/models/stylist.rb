@@ -12,5 +12,5 @@ class Stylist < ApplicationRecord
             s.password.SecureRandom.hex(16)
         end
     end
-      
+
 end

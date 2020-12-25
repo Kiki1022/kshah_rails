@@ -1,7 +1,7 @@
 class AppointmentsController < ApplicationController
     before_action :redirect_if_unauthorized
     before_action :set_appointment, only: [:show, :edit, :update, :destroy]
-    #layouts 'custom'
+ 
     
 
     def index
@@ -15,7 +15,7 @@ class AppointmentsController < ApplicationController
     
     
     def show 
-        #render layout: 'custom'
+       
     end
     
     def new
@@ -25,7 +25,6 @@ class AppointmentsController < ApplicationController
     end
 
     def create
-    
         @appointment = Appointment.new(appt_params)
         if @appointment.save
                 redirect_to stylist_appointment_path(@appointment.stylist_id, @appointment)

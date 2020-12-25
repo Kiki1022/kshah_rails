@@ -1,7 +1,6 @@
 class StylistsController < ApplicationController
    before_action :redirect_if_unauthorized, only: [:index, :show]
-#    skip_before_action :redirect_if_unauthorized, only: [:new, :create]
-    # before_action :authorize_to_view, only: [:show]
+   before_action :authorize_to_view, only: [:show]
    
     def home
         @clients = Client.all 
@@ -14,10 +13,6 @@ class StylistsController < ApplicationController
     
     def show
         @stylist = Stylist.find(params[:id])
-        if @stylist != current_user
-            flash[:message] = "Unauthorized"
-            redirect_to stylist_path(current_user)
-        end
     end
 
     def new
@@ -41,6 +36,14 @@ class StylistsController < ApplicationController
     def stylist_params
         params.require(:stylist).permit(:username, :password)
     end
+
+    def authorize_to_view
+        if Stylist.find(params[:id]) != current_user
+            flash[:message] = "Unauthorized"
+            redirect_to stylist_path(current_user)
+        end
+    end
+        
 
 end
 

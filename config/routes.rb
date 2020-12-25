@@ -8,11 +8,8 @@ Rails.application.routes.draw do
   resources :clients
  
   get '/', to: 'stylists#home'
-  #signing up
   get '/signup', to: 'stylists#new'
  
- 
-  #logging in
   
   get '/login', to:'sessions#login'
   post '/login', to:'sessions#create'

@@ -9,11 +9,11 @@ amrezy = Stylist.create ({username: "amrezy", password: "1111"})
 makeupbymario = Stylist.create ({username: "makeupbymario", password: "1111"})
 huda = Stylist.create ({username: "huda", password: "1111"})
 
-kim = Client.create ({name: "Kim Kardashian", notes: "Picks her nose!🤣"})
-khloe = Client.create ({name: "Khloe Kardashian", notes: "Omg she never tips!🤬"})
-scott = Client.create ({name: "Scott Disick", notes: "So hairy!🤢"})
-kylie = Client.create ({name: "Kylie Jenner", notes: "Always late!🙄"})
-kanye = Client.create ({name: "Kanye West", notes: "Always eating!🍕"})
+kim = Client.create ({name: "Kim Kardashian"})
+khloe = Client.create ({name: "Khloe Kardashian"})
+scott = Client.create ({name: "Scott Disick"})
+kylie = Client.create ({name: "Kylie Jenner"})
+kanye = Client.create ({name: "Kanye West"})
 
 
 chest_wax = Service.create({name: "Chest Wax"})

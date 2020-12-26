@@ -15,16 +15,17 @@ class AppointmentsController < ApplicationController
     
     
     def show 
-       
+       #set_appointment
+       #why is this running when we load the new form for a new stylist appointment
     end
     
     def new
-        @appointment = Appointment.new   
-        @appointment.build_service
-        @appointment.build_client 
+
+        @appointment = Appointment.new
+
     end
 
-    def create
+    def create 
         @appointment = Appointment.new(appt_params)
         if @appointment.save
                 redirect_to stylist_appointment_path(@appointment.stylist_id, @appointment)

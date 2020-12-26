@@ -1,7 +1,6 @@
 <div class = "box">
 <h2>New Appointment</h2>
 <%= form_for @appointment do |f| %>
- 
   <h3><%= f.label "When" %></h3>
   <%= f.datetime_local_field :appointment_datetime %>  
   
@@ -30,8 +29,6 @@
     <%=f.fields_for :client, @appointment.build_client do |c| %>
       <%= c.label :name %>
       <%= c.text_field :name %><br>
-      <%= c.label :notes %>
-      <%= c.text_field :notes %>
     <% end %>
 
  <p><%= f.submit %></p>

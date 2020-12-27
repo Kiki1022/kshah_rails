@@ -5,7 +5,4 @@ class ClientsController < ApplicationController
         @clients = Client.all
     end
 
-    def show
-        @client = Client.find(params[:id])
-    end
 end

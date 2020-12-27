@@ -2,6 +2,6 @@
 <div class="box">
     <h1>Clients</h1>
         <% @clients.each do |c| %>
-            <h2><%= link_to c.name, client_path(c) %></h2>
+            <h2><%= c.name %></h2>
     <% end %>
 </div>

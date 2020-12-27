@@ -38,7 +38,7 @@ class StylistsController < ApplicationController
     end
 
     def authorize_to_view
-        if Stylist.find(params[:id]) != current_user
+        if Stylist.find_by(id: params[:id]) != current_user
             flash[:message] = "Unauthorized"
             redirect_to stylist_path(current_user)
         end

@@ -12,7 +12,8 @@ class SessionsController < ApplicationController
                     redirect_to stylist_path(@stylist)
                 else
                     flash[:message] = "Invalid Credentials, Please Try Again"
-                    render :login
+                    #render :login
+                    redirect_to login_path
                 end
         else
             @stylist = Stylist.find_or_create_from_google(auth)
@@ -22,7 +23,7 @@ class SessionsController < ApplicationController
                     redirect_to stylist_path(@stylist)
                 else
                     @errors = @stylist.errors.full_messages.join(", ")
-                    redirect_to '/'
+                    redirect_to signup_path
                 end
             end
         end

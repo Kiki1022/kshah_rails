@@ -20,9 +20,7 @@ class AppointmentsController < ApplicationController
     end
     
     def new
-
         @appointment = Appointment.new
-
     end
 
     def create 
@@ -36,12 +34,12 @@ class AppointmentsController < ApplicationController
     end
 
     def edit
-    
     end
 
     def update
         @appointment.update(appt_params)
         if @appointment.save
+            flash[:message] = "Appointment was successfully edited"
             redirect_to stylist_appointment_path(@appointment.stylist_id, @appointment)
         else
             @errors = @appointment.errors.full_messages.join(", ")
@@ -51,6 +49,7 @@ class AppointmentsController < ApplicationController
 
     def destroy
         @appointment.destroy
+        flash[:message] = "Appointment was successfully deleted"
         redirect_to appointments_path
     end
 

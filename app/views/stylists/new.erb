@@ -1,4 +1,5 @@
-<h3 style="color:Red;"><%= @errors %></h3>
+<%= render partial: "layouts/errors", locals: { object: @stylist } %>
+
 <div class = "box">
     <%= form_for @stylist do |f| %>
 

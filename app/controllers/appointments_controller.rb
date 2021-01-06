@@ -1,7 +1,7 @@
 class AppointmentsController < ApplicationController
     before_action :redirect_if_unauthorized
     before_action :set_appointment, only: [:show, :edit, :update, :destroy]
- 
+    before_action :authorized_to_modify_appt?, only: [:edit, :update, :destroy]
     
 
     def index
@@ -15,8 +15,7 @@ class AppointmentsController < ApplicationController
     
     
     def show 
-       #set_appointment
-       #why is this running when we load the new form for a new stylist appointment
+     
     end
     
     def new
@@ -24,27 +23,21 @@ class AppointmentsController < ApplicationController
     end
 
     def create 
-        @appointment = Appointment.new(appt_params)
+        @appointment = current_user.appointments.build(appt_params)
         if @appointment.save
                 redirect_to stylist_appointment_path(@appointment.stylist_id, @appointment)
         else
-            flash[:message] = "#{@appointment.errors.full_messages.to_sentence}."
             render :new
         end 
     end
 
     def edit
+        
     end
 
     def update
-        @appointment.update(appt_params)
-        if @appointment.save
-            flash[:message] = "Appointment was successfully edited"
-            redirect_to stylist_appointment_path(@appointment.stylist_id, @appointment)
-        else
-            @errors = @appointment.errors.full_messages.join(", ")
-            render :edit
-        end
+         @appointment.update(appt_params)  
+         redirect_to stylist_appointment_path(@appointment.stylist_id, @appointment)
     end
 
     def destroy
@@ -63,5 +56,13 @@ class AppointmentsController < ApplicationController
     def appt_params
         params.require(:appointment).permit(:appointment_datetime, :client_id, :stylist_id, :id, :service_id, service_attributes: :name, client_attributes: [:name, :notes])
     end
+
+    def authorized_to_modify_appt?
+        if @appointment.stylist != current_user
+          flash[:unauthorized] = "You are not authorized to modify that appointment."
+          redirect_to appointments_path 
+        end
+      end
+  
 
 end

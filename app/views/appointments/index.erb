@@ -1,18 +1,26 @@
+<h3><%= flash[:message] %></h3>
+<h3><%= flash[:unauthorized] %></h3>
 <div class = "box">
-<h3 style="color:Red;"><%= flash[:message] %></h3>
-<h1>Appointments:</h1>
+
+<h1>Appointments</h1>
     
-        <% @appointments.each do |appt| %>
+        <% if @appointments.count == 0 %>
+
+            <h2 style="color:red;">You have no appointments</h2>
         
-            <p>When: <%= strftime appt %></p>
-            <p>Client: <%= appt.client.name %></p>
-            <p>Stylist: <%= appt.stylist.username %></p>
-            <p>Service: <%= appt.service.name %></p>
+        <% else %>
+
+            <% @appointments.each do |appt| %>
+            
+                <p>Stylist: <%= appt.stylist.username %></p>
+                <p>When: <%= strftime appt %></p>
+                <p>Client: <%= appt.client.name %></p>
+                <p>Service: <%= appt.service.name %></p>
            
-            <p><%=link_to "More", appointment_path(appt) %></p>
-        
+                <p><%=link_to "More", appointment_path(appt) %></p>
+        <%end%>
        
-        <% end %>
+<% end %>
 <br>
  <%= link_to "Create New Appointment", new_appointment_path %>
 

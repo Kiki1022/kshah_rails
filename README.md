@@ -14,3 +14,10 @@ This project is intended to be a safe, welcoming space for collaboration, and co
 License The gem is available as open source under the terms of the MIT License https://opensource.org/licenses/MIT
 
 Code of Conduct Everyone interacting in the SinatraRSSReader project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the Code of Conduct https://www.contributor-covenant.org/version/1/4/code-of-conduct/
+
+<% if @errors %>
+    <h3 style="color:Red;"><%= @errors %></h3>
+  <% end %>
+    <% if flash[:message] %>
+  <h3 style="color:Red;"><%= flash[:message] %></h3>
+  <%end%>

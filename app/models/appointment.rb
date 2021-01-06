@@ -20,7 +20,6 @@ class Appointment < ApplicationRecord
         if !attr[:name].blank?
             self.client= Client.find_or_create_by(name: attr[:name].titleize)
         end
-        #if user tries to create client that already existed, it goes into database and finds it for you.
     end
 
     

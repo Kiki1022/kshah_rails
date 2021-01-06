@@ -1,6 +1,4 @@
-
-<div class = "box">
-    <h3 style="color:Red;"><%= flash[:message] %></h3>
+  <div class = "box">
 
     <h1>Appointment for <%= @appointment.stylist.username %></h1>
 
@@ -8,9 +6,9 @@
     <p>Service:<%= @appointment.service.name %></p>
     <p>Client:<%= @appointment.client.name %></p>
    
-
-    <%= link_to "Create New Appointment", new_appointment_path %>
-    <%=button_to "Edit", edit_stylist_appointment_path(@appointment.stylist_id, @appointment), method: :get %>
-    <%=button_to "Delete", @appointment, method: :delete %> 
-
+    <% if current_user.username == @appointment.stylist.username %>
+        <%= link_to "Create New Appointment", new_appointment_path %>
+        <%=button_to "Edit", edit_stylist_appointment_path(@appointment.stylist_id, @appointment), method: :get %>
+        <%=button_to "Delete", @appointment, method: :delete %> 
+    <% end %>
 </div>

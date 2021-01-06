@@ -6,13 +6,13 @@ class SessionsController < ApplicationController
 
     def create
         if !auth 
+            
             @stylist = Stylist.find_by(username: params[:stylist][:username])
                 if @stylist && @stylist.authenticate(params[:password])
                     session[:stylist_id] = @stylist.id 
                     redirect_to stylist_path(@stylist)
                 else
                     flash[:message] = "Invalid Credentials, Please Try Again"
-                    #render :login
                     redirect_to login_path
                 end
         else

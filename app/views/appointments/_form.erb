@@ -1,9 +1,6 @@
 <div class = "box">
 
-  <h3 style="color:Red;"><%= @errors %></h3>
-  <h3 style="color:Red;"><%= flash[:message] %></h3>
-
-<h2>New Appointment</h2>
+<h2>New Appointment for <%= current_user.username %></h2>
 <%= form_for @appointment do |f| %>
   <h3><%= f.label "When" %></h3>
   <%= f.datetime_local_field :appointment_datetime %>  
@@ -19,13 +16,8 @@
       <%= s.text_field :name %>
     <% end %><br>
 
-
-  <h3><%= f.label "Stylist" %></h3>
-  
-  
-  <%= f.collection_select(:stylist_id, Stylist.all, :id, :username, {:include_blank => 'Select Stylist'}) %>
-  
   <h3>Existing Client</h3>
+  
   <%= f.collection_select(:client_id, Client.all, :id, :name, {:include_blank => 'Existing Client'}) %>
     <h5>OR</h5>
   <h3>New Client</h3>

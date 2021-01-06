@@ -26,7 +26,7 @@ class StylistsController < ApplicationController
             session[:stylist_id] = @stylist.id
             redirect_to stylist_path(@stylist) 
         else
-           @errors = @stylist.errors.full_messages.join(", ")
+           #@errors = @stylist.errors.full_messages.join(", ")
             render :new 
         end
     end

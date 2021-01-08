@@ -1,10 +1,10 @@
+<h2 style="color:Red;"><%= flash[:message] %></h2>
+
 <div class = "box">
 
-    <h3 style="color:Red;"><%= flash[:message] %></h3>
-
     <h2>Welcome to InstaStyle, <%= @stylist.username %>!</h2>
-    
-    <h1><%= link_to "Create New Appointment", new_stylist_appointment_path(@stylist) %></h1>
-    <h1><%= link_to "View My Appointments", stylist_appointments_path(@stylist) %></h1>
+
+    <h1><%= link_to "Create New Appointment", new_stylist_appointment_path(current_user) %></h1>
+    <h1><%= link_to "View My Appointments", stylist_appointments_path(current_user) %></h1>
 
 </div>

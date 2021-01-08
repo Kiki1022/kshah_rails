@@ -5,8 +5,7 @@ class SessionsController < ApplicationController
     end
 
     def create
-        if !auth 
-            
+        if !auth  
             @stylist = Stylist.find_by(username: params[:stylist][:username])
                 if @stylist && @stylist.authenticate(params[:password])
                     session[:stylist_id] = @stylist.id 
@@ -17,7 +16,6 @@ class SessionsController < ApplicationController
                 end
         else
             @stylist = Stylist.find_or_create_from_google(auth)
-        
                 if @stylist.valid?
                     session[:stylist_id] = @stylist.id
                     redirect_to stylist_path(@stylist)

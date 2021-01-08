@@ -1,6 +1,9 @@
-<h3><%= flash[:message] %></h3>
-<h3><%= flash[:unauthorized] %></h3>
+<h2><%= flash[:message] %></h2>
+<h2 style="color:Red;"><%= flash[:unauthorized] %></h2>
+
 <div class = "box">
+
+<%= link_to "Create New Appointment", new_appointment_path %>
 
 <h1>Appointments</h1>
     
@@ -11,7 +14,7 @@
         <% else %>
 
             <% @appointments.each do |appt| %>
-            
+
                 <p>Stylist: <%= appt.stylist.username %></p>
                 <p>When: <%= strftime appt %></p>
                 <p>Client: <%= appt.client.name %></p>
@@ -21,8 +24,6 @@
         <%end%>
        
 <% end %>
-<br>
- <%= link_to "Create New Appointment", new_appointment_path %>
 
  </div>
 

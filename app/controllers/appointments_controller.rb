@@ -4,12 +4,13 @@ class AppointmentsController < ApplicationController
     before_action :authorized_to_modify_appt?, only: [:edit, :update, :destroy]
     
 
+
     def index
         if params[:stylist_id]
             @stylist = Stylist.find_by(id: params[:stylist_id])
             @appointments = @stylist.appointments.order_by_appointment_datetime
         else
-            @appointments = Appointment.all.order_by_appointment_datetime
+            @appointments = Appointment.order_by_appointment_datetime
         end
     end
     
@@ -54,7 +55,7 @@ class AppointmentsController < ApplicationController
 
 
     def appt_params
-        params.require(:appointment).permit(:appointment_datetime, :client_id, :stylist_id, :id, :service_id, service_attributes: :name, client_attributes: [:name, :notes])
+        params.require(:appointment).permit(:appointment_datetime, :client_id, :stylist_id, :id, :service_id, service_attributes: :name, client_attributes: :name)
     end
 
     def authorized_to_modify_appt?

@@ -13,11 +13,6 @@ body{
   box-sizing: inherit;
 } */
 
-.field_with_errors input {
-    border-color: red; 
-    color: red;
-}
-
 .box{
     /* display: inline-block;
     /* margin-left: 25px;

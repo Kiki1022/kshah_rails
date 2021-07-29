@@ -27,7 +27,8 @@ class StylistsController < ApplicationController
             render :new 
         end
     end
-  
+
+
     private
 
     def stylist_params

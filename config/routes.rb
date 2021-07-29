@@ -15,8 +15,10 @@ Rails.application.routes.draw do
   get '/login', to:'sessions#login'
   post '/login', to:'sessions#create'
   delete '/logout', to:'sessions#destroy'
+  #get '/auth/google_oauth2', to: 'sessions#create'
+  get '/auth/:provider/callback', to: 'sessions#create' 
+  
 
-  get '/auth/:provider/callback', to: 'sessions#create' #this route takes me to this action to complet the login process
-
- 
+  get '/most_requested', to: 'services#most_requested'
 end
+

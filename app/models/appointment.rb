@@ -8,6 +8,8 @@ class Appointment < ApplicationRecord
    
     
     scope :order_by_appointment_datetime, ->{order(:appointment_datetime)}
+
+  
  
     def service_attributes=(attr)
         if !attr[:name].blank?
